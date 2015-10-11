@@ -1,2 +1,2 @@
-# sample-code-
-this is a list of sample code in various languages such as java, java script ,c++ etc
+# sample-Android-java-code-
+this is a list of sample java code used in android applications
