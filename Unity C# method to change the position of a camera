@@ -1,0 +1,24 @@
+public void panCamera(int cameraDirection)
+    {
+        Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>() as Camera;
+        
+        if (cameraDirection == 1)
+        {
+            camera.transform.position -= temp;
+            if (camera.transform.position.x <= -22)
+            { 
+                camera.transform.position += temp;
+            }
+        }
+        if (cameraDirection == 2)
+        {
+            camera.transform.position += temp;
+            if (camera.transform.position.x >= 22)
+            {
+                camera.transform.position -= temp;
+            }
+
+        }
+
+
+    }
