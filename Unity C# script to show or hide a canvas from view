@@ -1,0 +1,57 @@
+using UnityEngine;
+using System.Collections;
+using System.Reflection;
+
+public class ButtonHandler : MonoBehaviour
+{
+
+    private Canvas canvas;
+    private Canvas[] canvasArray;
+
+    void Start()
+    {
+        Debug.Log("START");
+        canvas = GetComponent<Canvas>();
+    }
+
+    void Update()
+    {
+    }
+
+    public void populateCanvasList()
+    {
+        canvasArray = new Canvas[3];
+        canvasArray[0] = GameObject.Find("Craft Canvas").GetComponent<Canvas>();
+        canvasArray[1] = GameObject.Find("Build Canvas").GetComponent<Canvas>();
+        canvasArray[2] = GameObject.Find("Hunt Canvas").GetComponent<Canvas>();
+    }
+
+    public void showCanvas()
+    {
+        Debug.Log("SHOW CANVAS");
+
+        canvas = GetComponent<Canvas>();
+        populateCanvasList();
+
+        if (canvas.enabled == false)
+        {
+            Debug.Log("btn pressed");
+
+            for(int i = 0; i < canvasArray.Length; i++)
+            {
+                if (canvas == canvasArray[i])
+                {
+                    canvasArray[i].enabled = true;
+                }
+                else
+                    canvasArray[i].enabled = false;        
+            }
+        }
+        else if (canvas.enabled == true)
+        {
+            Debug.Log("btn not pressed");
+            canvas.enabled = false;
+        }
+    }
+}
+
